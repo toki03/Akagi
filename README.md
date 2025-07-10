@@ -11,210 +11,311 @@
     <a href="https://discord.gg/Z2wjXUK8bN">Ask me anything about this at Discord</a>
     <br/>
     <br/>
-    <a href="https://github.com/shinkuan/Akagi/blob/main/README_CH.md">中文</a>
+    <a href="./README_ZH.md">中文</a>
     <br/>
-    <a href="https://github.com/shinkuan/MajsoulUnlocker/issues">Report Bug</a>
+    <a href="https://github.com/shinkuan/Akagi/issues">Report Bug</a>
     .
-    <a href="https://github.com/shinkuan/MajsoulUnlocker/issues">Request Feature</a>
+    <a href="https://github.com/shinkuan/Akagi/issues">Request Feature</a>
   </p>
 </p>
 
-# About The Project
+<p align="center">
+  <a href="https://github.com/shinkuan/Akagi"><img src="https://img.shields.io/github/stars/shinkuan/Akagi?logo=github" alt="GitHub stars" /></a>
+  <a href="https://github.com/shinkuan/Akagi/releases"><img src="https://img.shields.io/github/v/release/shinkuan/Akagi?label=release&logo=github" alt="GitHub release" /></a>
+  <a href="https://github.com/shinkuan/Akagi/issues"><img src="https://img.shields.io/github/issues/shinkuan/Akagi?logo=github" alt="GitHub issues" /></a>
+  <a href="https://github.com/shinkuan/Akagi"><img src="https://img.shields.io/github/languages/top/shinkuan/Akagi?logo=python" alt="Top language" /></a>
+  <a href="https://discord.gg/Z2wjXUK8bN"><img src="https://img.shields.io/discord/1192792431364673577?label=discord&logo=discord&color=7289DA" alt="Discord" /></a>
+  <a href="https://deepwiki.com/shinkuan/Akagi"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
+</p>
 
-## "The purpose of this project is to provide people with a convenient way to real-time understand their performance in Majsoul game matches and to learn and improve from it. This project is intended for educational purposes only, and the author is not responsible for any actions taken by users using this project. Majsoul officials may detect abnormal behavior, and any consequences such as account suspension are not related to the author."
+# About
 
-![image](https://github.com/shinkuan/RandomStuff/assets/35415788/4f9b2e2f-059e-44a8-b11a-5b2ce28cb520)
+## "The purpose of this project is to provide people with a convenient way to real-time understand their performance in Mahjong game matches and to learn and improve from it. This project is intended for educational purposes only, and the author is not responsible for any actions taken by users using this project. Game developers and publishers have the right to take action against users who violate their terms of service, any consequences such as account suspension are not related to the author."
 
-https://github.com/shinkuan/RandomStuff/assets/35415788/ce1b598d-b1d7-49fe-a175-2fe1bd2bb653
+![image](./docs/images/example_majsoul.png)
 
-# Usage
+# Feature
+- Real-time analysis of your game.
+- Support for multiple platforms.
+  - Majsoul
+  - Tenhou
+  - RiichiCity
+  - Amatsuki
+- Support for multiple game modes.
+  - Four Player
+  - Three Player
+- Support for multiple AI models.
+  - Builtin model
+  - Online server model
+  - Your own model
+- AutoPlay
+  - *Only available on Windows Release version when ot_server is running.
+- TUI
+  - Using Textual UI.
+  - Support for multiple themes.
 
-## Flowchart
+# Table of Contents
 
-![Flow](https://github.com/shinkuan/RandomStuff/assets/35415788/85ece51f-cbc7-4236-91eb-95253dcc0132)
+### ⚠️ READ THE DOC BEFORE YOU START
+### ⚠️ READ THE DOC BEFORE YOU START
+### ⚠️ READ THE DOC BEFORE YOU START
 
-## Setup
+- [About](#about)
+- [Before You Start](#before-you-start)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Troubleshooting](#troubleshooting)
+- [Developer](#developer)
+- [LICENSE](#license)
+  
+# Before You Start
 
-### Installation.
-
-[YouTube Video for you to follow.](https://youtu.be/V7NMNsZ3Ut8)
+🎥[YouTube Video for you to follow.](https://youtu.be/Z88Ncxbe2nw)
 
 ### You will need:
 
-1. A `mortal.pth`. [(Get one from Discord server if you don't have one.)](https://discord.gg/Z2wjXUK8bN)
-2. (Optional, Recommend) Use Windows Terminal to open client.py for a nice looking TUI.
-3. (Optional) If you want to use Steam, Majsoul Plus, or anything other client, proxy the client using tools like proxifier.
+1. A `mjai_bot`. 
+   1. A working one is already included [here](./mjai_bot/mortal).
+      - Because the limit of the file size, the `mortal.pth` here is a tiny weak small model.
+      - It is not recommended to use it in a real game.
+      - You can get a better model from [Discord](https://discord.gg/Z2wjXUK8bN).
+      - Or use the hosted model from the online server.
+      - You can get the API key from [Discord](https://discord.gg/Z2wjXUK8bN).
+   2. Or make your own one, check [Developer setcion](#developer).
+2. Use Windows Terminal to open akagi for a nice looking TUI.
+3. Proxifier or similar tools to redirect game client to the MITM port.
 
-**Get mortal.pth at [Discord](https://discord.gg/Z2wjXUK8bN)**
+> [!TIP]
+> Some people have wrote a __keygen__ for __Proxifier__, you can find it using __Google__.
+> 
+> Authors of this project are not responsible for any illegal actions taken by users.
 
-1. Go to #verify and click the ✅ reaction.
-2. Go to #bot-zip
-3. Download a bot you like.
-4. Extract the zip.
-5. And mortal.pth is there.
+> [!WARNING]  
+> __Windows Terminal__ is required for user interface to work properly.
+> Defalt Windows console will make the UI look ugly and not usable.
 
-### Akagi:
+### Supported Mahjong Games:
 
-#### Windows
+| Platform       | Four Player   | Three Player   | AutoPlay |
+| -------------- | ------------- | -------------- | -------- |
+| __Majsoul__    | &check;       | &check;        | *&check; |
+| __Tenhou__     | &check;       | &check;        |  &cross; |
+| __RiichiCity__ | &check;       | &check;        |  &cross; |
+| __Amatsuki__   | &check;       | &check;        |  &cross; |
 
-Download `install_akagi.ps1` at [Release](https://github.com/shinkuan/Akagi/releases/latest)
+*AutoPlay only avaliable on [Windows Release version](https://github.com/shinkuan/Akagi/releases) when ot_server is running.
 
-1. Put `install_akagi.ps1` at the location you want to install Akagi.
-2. Open **Powershell** as **Administrator**
-3. cd in to the directory
-4. Run: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
-5. Run: `install_akagi.ps1`
-6. Open mitmproxy if this is your first time using it.
-7. Close it.
-8. Go to your user home directory `~/.mitmproxy`
-9. Install the certificate.
-10. Put `mortal.pth` into `./Akagi/mjai/bot`
+# Installation
 
-#### Mac
+- For User:
+  - Go to [release page](https://github.com/shinkuan/Akagi/releases)
+  - Download the latest release.
+  - Extract the zip file.
+  - Put MJAI bots in `./Akagi/mjai_bot`.
+  - Run `run_akagi.exe`
+- For Developer:
+  - Clone the repository.
+  - Use Python 3.12
+  - Install the dependencies using `pip install -r requirements.txt`.
+  - Put MJAI bots in `./Akagi/mjai_bot`.
+    - For the builtin model, move `./mjai_bot/mortal/libriichi/libriichi-<version>-<platform>.<extension>` to `./mjai_bot/mortal/libriichi.<extension>`.
+    - Same for 3p model.
+  - Run `run_akagi.py`.
 
-Download `install_akagi.command` from [Release](https://github.com/shinkuan/Akagi/releases/latest)
+# Usage
 
-1. Place `install_akagi.command` in the location where you want to install Akagi.
-2. Download the latest Python installation package from the [Python official website](https://www.python.org/downloads/) and install it (skip this step if you already have a compatible version of Python installed).
-3. Open Terminal and cd to the directory where `install_akagi.command` is located.
-4. Execute: bash install_akagi.command
-5. After installation is complete, enter the Akagi folder.
-6. Double-click `run_agaki.command` to start Akagi.
-7. If you are using mitmproxy for the first time, click on "start mitm".
-8. Close it.
-9. Go to your user home directory `~/.mitmproxy`.
-10. Install the certificate.
-11. Put `mortal.pth` into `./Akagi/mjai/bot`.
-
-### settings.json
-
-- `Unlocker`: Decide to use [MajsoulUnlocker](https://github.com/shinkuan/MajsoulUnlocker) or not.
-- `v10`: If your Majsoul client in still in v0.10.x and you want to use MajsoulUnlocker, set it to true.
-- `Autoplay`: Autoplay.
-- `Helper`: To use [mahjong-helper](https://github.com/EndlessCheng/mahjong-helper) or not
-- `Autohu`: Auto Ron.
-- `Port`:
-  - `MITM`: The MITM Port, you should redirect Majsoul connection to this port.
-  - `XMLRPC`: The XMLRPC Port.
-  - `MJAI`: The port bind to MJAI bot container.
-- `Playwright`:
-  - `enable`: Enable the playwright
-  - `width`: width of the viewport of playwright
-  - `height`: height of the viewport of playwright
-- The rest are the setting for MajsoulUnlocker.
+1. **Check your settings and AI Model.**
+   1. Select a Model.
+      - By clicking on the "Model" button in the bottom left corner.
+      - Select a model from the list.
+      - If you don't have a model, get it from [Discord](https://discord.gg/Z2wjXUK8bN).
+      - Builtin default model is weak AI.
+      - __Choose 3P model for 3P game!__
+      - __Do not join 3P game with 4P model!__
+   2. Check your settings.
+      - By clicking on the "Settings" button in the bottom left corner.
+      - Check your settings and make sure they are correct.
+      - Set the MITM type to the game you are playing.
+      - Set the MITM host and port to the correct values.
+      - If you don't know what to set, leave it as default.
+      - Default: (host: 127.0.0.1) (port: 7880)
+      - If you have got a Online server API key, set it in the settings.
+      - Online server provides a stronger AI model.
+      - You can get the API key from [Discord](https://discord.gg/Z2wjXUK8bN).
+   3. Save your settings.
+      - By clicking on the "Save" button.
+      - This will save your settings.
+   4. Restart Akagi.
+      - Close Akagi and open it again.
+      - This will apply the settings.
+   5. Start MITM.
+      - By clicking on the "MITM Stopped" button in the bottom left corner.
+      - This will start the MITM proxy server.
+2. **Install MITM Proxy Certificate.**
+   1. Open File Explorer (press `Windows key + E`)
+   2. In the address bar at the top, type: `%USERPROFILE%\.mitmproxy` and press Enter.
+   3. Look for a file called `mitmproxy-ca-cert.cer`.
+   4. Double-click on the `mitmproxy-ca-cert.cer` file.
+   5. Click the "__Install Certificate__" button.
+   6. If you see a choice, select "__Local Machine__" and click "Next".
+   7. Choose "__Place all certificates in the following store__", then click "__Browse...__"
+   8. Select "__Trusted Root Certification Authorities__", click OK, then click "Next" and "Finish".
+   9. If you're asked for permission, click "Yes".
+3. **Proxifier Setup**
+   1. Open Proxifier and go to "Profile" > "Proxy Servers..."
+   2. Click "Add..." and enter the following:
+      - Address: The host you set in Akagi settings (default: `127.0.0.1`)
+      - Port: The port you set in Akagi settings (default: `7880`)
+      - Protocol: HTTPS
+   3. Click "OK" to save the proxy settings.
+   4. Go to "Profile" > "Proxification Rules..."
+   5. Add a new rule by clicking "Add..."
+   6. In the "Applications" tab, click "Browse..." and select the game executable.
+      - This is usually located in the game installation folder.
+      - For example, for Mahjong Soul Steam version:
+        - Browse to your game in Steam library.
+        - Click the manage button (gear icon) and select "Browse local files..."
+        - This will open the game installation folder.
+        - You should see the game executable file (e.g., `Jantama_MahjongSoul.exe`).
+      - For web version, you can use the browser executable (e.g., `chrome.exe` or `firefox.exe`).
+   7. In the "Target Hosts" tab, you can leave it default.
+   8. In the "Action" tab, select the proxy server you just added.
+   9. Click "OK" to save the rule.
+4. **Start the game client.**
+   - Launch the game client (e.g., Mahjong Soul) and log in.
+5. **Join a game.**
+   - Join a game as you normally would.
+6. **Check Akagi.**
+   - You should see the AI analyzing the game in real-time.
+   - If you see any errors, check the Logs for more information.
+   - Or ask for help in the [Discord](https://discord.gg/Z2wjXUK8bN) server.
 
 ## Instructions
 
-### Main Screen
+### Akagi
 
-![image](https://github.com/shinkuan/RandomStuff/assets/35415788/6b66a48b-48fe-4e12-b3cc-18b582410f9a)
+#### Starting MITM Proxy Server:
+![image](./docs/gifs/start_mitm.gif)
 
-You can see that there are two flows here, usually the top one is the "Lobby" websocket flow, and the bottom one is the "Game" websocket flow which appears after you join a match.
+#### Selecting AI Model:
+Models are stored in `./mjai_bot/` folder.
+![image](./docs/gifs/select_model.gif)
 
-Click on the bottom flow to start. (It can take a while, click once and wait, don't click it for multiple times)
+#### Changing Settings:
+> [!IMPORTANT]  
+> Restart might be required to apply the settings.
 
-### Flow Screen
+![image](./docs/gifs/settings.gif)
 
-![image](https://github.com/shinkuan/RandomStuff/assets/35415788/17ae8275-4499-4788-a91b-ecafbac33512)
+#### Opening Logs:
+When you encounter a problem, you can open the logs to see what happened.
+Report the issue with the logs.
 
-After you are in the Flow Screen, this is what you should see.
-On top left is the LiqiProto Message we captured using MITM.
-The LiqiProto Message is then transcribe to mjai format and send to the bot(AI).
+logs are saved in `./logs/` folder.
+![image](./docs/gifs/logs_screen.gif)
 
-On top right is the MJAI Messages, this is the message our bot sent back to us, indicating the action we should do.
+#### Changing MJAI Info Window:
+Click on the MJAI Info window to change kind of info you want to see.
+![image](./docs/gifs/change_window.gif)
 
-Then below is our tehai, it is composed using unicode characters.
+#### AutoPlay:
+> [!NOTE]
+> AutoPlay is only available on Windows Release version when ot_server is running.
 
-Bottom left is the settings.
+Make sure you have set the display of the game client to 16:9 aspect ratio.
+![image](./docs/images/autoplay_example/good.png)
+![image](./docs/images/autoplay_example/bad_1.png)
+![image](./docs/images/autoplay_example/bad_2.png)
 
-Bottom right is the bot's action.
+#### Changing theme:
+![image](./docs/gifs/change_theme.gif)
 
-# How to keep your account safe
+#### Call Reach
+The recommandation window does not show which tile to discard for riichi?
+You have to click on the "Reach" button to show the call reach recommendation.
+![image](./docs/gifs/call_reach.gif)
 
-Following guide can minimum the probility of account suspension.
+### Proxifier
 
-1. Don't use steam, use web instead.
-2. Use `safe_code.js` from [Majsoul Mod Plus](https://github.com/Avenshy/majsoul_mod_plus)
-3. Don't use MajsoulUnlocker as it modifies websocket.
-4. Don't use autoplay, play it yourself.
-5. Try to use stickers often.
-6. Don't completely follow what bot told you to do.
-7. Don't play 24hr a day using autoplay.
+> [!NOTE]  
+> [Proxifier](https://www.proxifier.com/) is a tool that allows you to redirect network traffic through a proxy server. You can use it to redirect the game client traffic to the MITM proxy server.
 
-### There is no way to guarantee 100% no account suspension currently.
+#### Example Proxifier proxy settings:
+![image](./docs/images/proxifier/open_proxy_setting.png)
+![image](./docs/images/proxifier/proxy_setting.png)
 
-# TODO
+#### Example Proxifier proxy rules:
+![image](./docs/images/proxifier/open_proxy_rule.png)
+![image](./docs/images/proxifier/proxy_rule_setting.png)
 
-- [x] 3 Player Mahjong
-  - Already done, but not planned to release yet.
-- [x] Change Setting inside application.
-- [x] Autoplay
-  - [ ] Auto use stickers to make opponent think we are not a bot.
-  - [ ] Add random time in settings.json to let user choose time they want.
-- [ ] Mix multiple AI's decision to make we more like a human but not a perfect bot.
-- [x] Reduce Startup time of the bot. (Maybe start it before match begin?)
-- [x] Intergrade with [MajsoulUnlocker](https://github.com/shinkuan/MajsoulUnlocker)
-- [ ] Don't use MITM at all for the gameplay, use image recognition.
-  - [ ] Decide use what model
-  - [ ] Training data generation
-  - [ ] Train it
-  - [ ] Delta Score Recognition.
-  - [ ] Ryukyoku Recognition.
-  - [ ] Implement
-- [x] Easier installation.
+# Troubleshooting
 
-## Need Help!
+You can ask for help in the [Discord](https://discord.gg/Z2wjXUK8bN) server.
 
-1. Any PR is welcomed.
-2. Tell me if the MajsoulUnlocker is working well, is there any trace about we modified the message leaked to Majsoul server?
-3. A stable and safe way to autoplay.
-4. Report any bug you encounter.
-5. Share your bot.zip if it is good.
+> [!TIP]
+> If you encounter any issues, please check the logs in `./logs/` folder.
+> The logs are saved in the `./logs/` folder.
+> You can also check the GitHub Issues
 
-# Authors
+> [!NOTE]
+> If you find a bug, please report it in the GitHub Issues.
+> You can also report it in the Discord server.
+> If you have a feature request, please report it in the GitHub Issues.
 
-- **Shinkuan** - [Shinkuan](https://github.com/shinkuan/)
+- MITM Proxy server not working?
+  - Make sure you have installed the MITM proxy certificate.
+  - Make sure you have set the correct host and port in the settings.
+  - Make sure you have set the correct proxy settings in Proxifier.
+  - Make sure you have started the MITM proxy server.
+  - If above does not work, please [check this issue](https://github.com/shinkuan/Akagi/issues/57).
 
-## Support me
+# Developer
 
-### Donating is optional, and the full functionality of this program is avaliable even without a donation.
+## File Structure
 
-ETH Mainnet: 0x83095C4355E43bDFe9cEf2e439F371900664D41F
+- `./Akagi/` - The main folder of the project.
+  - `akagi/` - Contains the Textual UI for Akagi.
+  - `logs/` - Contains the logs of the game.
+  - `mitm/` - Contains the MITM proxy server.
+    - `bridge/` - Contains the bridge between the game client and the server. This is for converting the game client protocol to MJAI protocol. You can make your own bridge here.
+      - `majsoul/` - Contains the bridge for Majsoul.
+      - `tenhou/` - Contains the bridge for Tenhou.
+      - `amatsuki/` - Contains the bridge for Amatsuki.
+  - `mjai_bot/` - Contains the MJAI bots.
+    - `base/` - Base class for MJAI bots. Check it out if you want to make your own bot.
+    - `*/` - MJAI bots. This is your mjai_bot. For example, `mortal/`.
+  - `settings/` - Contains the settings of the project.
+  - `run_akagi.py` - The main file to run the project.
 
-Paypal or Others: Contact me on Discord.
+## Bridge
 
-You can find me at [Discord](https://discord.gg/Z2wjXUK8bN).
+To make a bridge, you need to implement two things:
 
-### What can I get after donating?
+1. `ClientWebSocketABC` in `mitm/bridge/mitm_abc.py`.
+2. `Bridge` in `mitm/bridge/bridge_base.py`.
 
-Firstly, thank you very much for your willingness to support the author.
+For `ClientWebSocketABC`, this is an mitmproxy addon, main goal is to convert the game client protocol to MJAI protocol, and push it in to `mjai_messages: queue.Queue[dict] = queue.Queue()`.
+You can check the `mitm/majsoul/` for the example.
 
-I will prioritize the opinions of donors, such as feature requests and bug fixes.
+For `Bridge`, this is the main class for the bridge. You need to implement the `parse()` method to parse the byte content from the game client into `None | list[dict]`, you can check the `mitm/bridge/amatsuki/bridge.py` for the example.
 
-Next, you can find me on Discord, where I will assign you a donor role.
+## MJAI Bot
 
-<!-- Planned in future:
+To make a MJAI bot, you need to implement the `Bot` class in `mjai_bot/base/bot.py`.
 
-- Help test unreleased features that are still in development
-- Other bot.zip options to choose from -->
+TODO: make an tsumogiri bot example.
 
-# See Also
+## TODO
 
-### [MajsoulUnlocker](https://github.com/shinkuan/MajsoulUnlocker)
+- [x] Three Player Mahjong support.
+- [x] RiichiCity support.
+- [x] Show which tile to discard after call for riichi.
+- [ ] Show which tile to Kan after call for Kan (rare case).
 
-### [Riichi City Unlocker](https://github.com/shinkuan/RiichiCityUnlocker)
+# Contact
 
-# Special Thanks
-
-[Equim-chan/Mortal](https://github.com/Equim-chan/Mortal)
-
-[Majsoul Mod Plus](https://github.com/Avenshy/majsoul_mod_plus)
-
-[mahjong-helper](https://github.com/EndlessCheng/mahjong-helper)
-
-[MahjongRepository/mahjong_soul_api](https://github.com/MahjongRepository/mahjong_soul_api)
-
-[smly/mjai.app](https://github.com/smly/mjai.app)
+- [Shinkuan](https://github.com/shinkuan/) - shinkuan318@gmail.com
+- [Discord](https://discord.gg/Z2wjXUK8bN)
 
 # LICENSE
 
